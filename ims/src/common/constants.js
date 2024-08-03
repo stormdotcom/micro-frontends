@@ -36,13 +36,6 @@ export const EVENT_TYPES = {
   PAGE_VISIT_DURATION: "visit_duration"
 };
 
-export const PROJECT_PROPS = {
-  BRAND: {
-    LOGO: "",
-    NAME: "LMS"
-  }
-};
-
 
 export const UI_SEARCH_LOCATION = [
   { title: "Profile", subTitle: "profile view and edit ", slug: "./home/profile/details", type: "page" },

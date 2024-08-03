@@ -9,7 +9,7 @@ const TermsAndCondition = ({ handleClose, open }) => {
         <p>Here are the terms and conditions...</p>
         <button
           onClick={handleClose}
-          className="mt-4 px-4 py-2 bg-primary-light text-white rounded"
+          className="mt-4 px-4 py-2 bg-primary-light rounded"
         >
           Close
         </button>

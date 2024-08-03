@@ -6,13 +6,14 @@ module.exports = {
         sans: ["Roboto", "ui-sans-serif", "system-ui"]
       },
       colors: {
-        primary: "#ffffff",
+        primary: "#0e1111",
         secondary: "#ffd700",
         background: "#ffecb3",
         surface: "#fffae5",
         text: "#5c3d00",
         border: "#f0e68c",
         gridBorder: "#e0d896",
+        menu: "#89CFF0",
         light: {
           background: "#ffffff",
           surface: "#f2f2f2",

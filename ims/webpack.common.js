@@ -4,7 +4,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PROJECT_PROPS = require("./projectconfig");
 const { ProvidePlugin } = require("webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const dotenv = require('dotenv');
 
+// Load environment variables from .env file
+dotenv.config();
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),
     output: {
@@ -49,6 +53,7 @@ module.exports = {
         ],
     },
     plugins: [
+
         new ModuleFederationPlugin({
             name: "mainApp",
             filename: "remoteEntry.js",
@@ -65,13 +70,14 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./public/index.html",
             filename: "index.html",
             title: PROJECT_PROPS.title + " (Dev)",
         }),
         new ProvidePlugin({
             React: 'react',
         }),
+        new FaviconsWebpackPlugin('./src/assets/favicon.ico')
     ],
     optimization: {
         splitChunks: {

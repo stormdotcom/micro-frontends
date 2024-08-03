@@ -4,6 +4,7 @@ import CourseStats from "./CourseStats";
 import CourseList from "./CourseList/Index";
 import { useDispatch } from "react-redux";
 import { dashboard, learningProgress } from "../actions";
+import InvoiceGenerator from "../../../../common/components/Custom/InvoiceGenerator";
 
 const HomeWrapper = () => {
   const dispatch = useDispatch();
@@ -24,12 +25,7 @@ const HomeWrapper = () => {
           </div>
         </div>
       </div>
-      {/* Course List Grid */}
-      <div className="pt-3 pb-5 px-2">
-        <div className="rounded-lg border-2 border-b border-light-border px-2 py-3">
-          <CourseList />
-        </div>
-      </div>
+      <InvoiceGenerator />
     </div>
   );
 };

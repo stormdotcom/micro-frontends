@@ -2,7 +2,9 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const PROJECT_PROPS = require("./projectconfig.js");
+const dotenv = require('dotenv');
 
+dotenv.config();
 module.exports = merge(common, {
     mode: "production",
     devtool: "source-map",
