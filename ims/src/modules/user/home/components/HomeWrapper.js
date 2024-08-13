@@ -5,6 +5,7 @@ import CourseList from "./CourseList/Index";
 import { useDispatch } from "react-redux";
 import { dashboard, learningProgress } from "../actions";
 import InvoiceGenerator from "../../../../common/components/Custom/InvoiceGenerator";
+import { INVOICE_DATA } from "../constants";
 
 const HomeWrapper = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const HomeWrapper = () => {
           </div>
         </div>
       </div>
-      <InvoiceGenerator />
+      <InvoiceGenerator invoiceData={INVOICE_DATA} />
     </div>
   );
 };
