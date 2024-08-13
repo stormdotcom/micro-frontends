@@ -2,14 +2,10 @@ import React from 'react';
 
 const MiddleFooter = () => {
     const popularCategories = [
-        'TV & Home Theater',
-        'Computers & Tablets',
-        'Cameras, Camcorders & Drones',
+        'Home Theater',
+        'Tablets',
         'Cell Phones',
         'Audio',
-        'Video Games',
-        'Movies & Music',
-        'Car Electronics & GPS',
         'Wearable Technology',
         'Health & Wellness',
         'Smart Home',
@@ -33,7 +29,6 @@ const MiddleFooter = () => {
         'About Us',
         'Contact Us',
         'Help Center',
-        'Career',
         'Policy',
         'Sitemap',
     ];
@@ -81,15 +76,6 @@ const MiddleFooter = () => {
                     </ul>
                 </div>
 
-                {/* Customer Care */}
-                <div>
-                    <h3 className="text-lg font-semibold mb-4">Customer Care</h3>
-                    <ul className="text-gray-600 space-y-2">
-                        {customerCare.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
 
                 {/* Follow Us */}
                 <div>

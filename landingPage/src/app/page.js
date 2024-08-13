@@ -1,8 +1,13 @@
+import React from "react";
+import FeaturedAccessories from "@/components/Featured/FeaturedAccessories";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import ProductList from "@/components/Products/ProductList";
 import Services from "@/components/Services/Services";
-import Image from "next/image";
-import React, { Suspense } from "react";
+import AccessoriesList from "@/components/Products/AccessoriesList";
+import FeaturedSoundDevice from "@/components/Featured/FeaturedSoundDevice";
+import FeaturedBrands from "@/components/Featured/FeaturedBrands";
+
+
 
 
 export default function Home() {
@@ -11,6 +16,10 @@ export default function Home() {
       <HeroSection />
       <Services />
       <ProductList />
+      <FeaturedAccessories />
+      <AccessoriesList />
+      <FeaturedSoundDevice />
+      <FeaturedBrands />
     </main>
   );
 }

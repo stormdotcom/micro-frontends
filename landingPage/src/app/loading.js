@@ -13,7 +13,7 @@ const HomeLoader = () => {
                 </div>
                 {/* Center Icon */}
                 <div className="relative z-10">
-                    <Image alt="logo" src="/assets/images/hm_logo.png" />
+                    <Image alt="logo" src="/assets/images/hm_logo.png" width={40} height={40} />
                 </div>
             </div>
         </div>

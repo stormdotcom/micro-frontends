@@ -9,6 +9,8 @@ import {
     DeviceMobileIcon,
     MusicNoteIcon,
 } from '@heroicons/react/outline';
+import { SmartWatch } from '../Icons';
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -16,11 +18,11 @@ function classNames(...classes) {
 
 const menuItems = [
     { label: 'Top Deals', icon: FireIcon },
-    { label: 'Computers', icon: DesktopComputerIcon },
+    { label: 'Computers Accessories', icon: DesktopComputerIcon },
     { label: 'Cameras', icon: CameraIcon },
     { label: 'Phones', icon: DeviceMobileIcon },
     { label: 'Headphones', icon: MusicNoteIcon },
-    // Add more items as needed
+    { label: 'Smart Watch', icon: SmartWatch },
 ];
 
 const categories = [
