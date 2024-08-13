@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   const MiddleFooterComponent = () => <MiddleFooter />
   return (
     <html lang="en">
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico"></link>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <body>
         <Header NavigationComponent={NavigationComponent} SearchBarComponent={SearchBarComponent} LoginComponent={LoginComponent} />
         <MenuHeader />
