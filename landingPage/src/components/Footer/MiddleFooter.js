@@ -81,18 +81,34 @@ const MiddleFooter = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                     <div className="flex space-x-4 text-gray-600">
-                        <div>
+                        <a
+                            href='#'
+                            target='_blank'
+                            className=' cursor-pointer'
+                        >
                             <Twitter />
-                        </div>
-                        <div>
+                        </a>
+                        <a
+                            href='https://www.facebook.com/hotspotmobileskariavattom/'
+                            target='_blank'
+                            className=' cursor-pointer'
+                        >
                             <Facebook />
-                        </div>
-                        <div>
+                        </a>
+                        <a
+                            href='#'
+                            target='_blank'
+                            className=' cursor-pointer'
+                        >
                             <Instagram />
-                        </div>
-                        <div>
+                        </a>
+                        <a
+                            href='#'
+                            target='_blank'
+                            className=' cursor-pointer'
+                        >
                             <Youtube />
-                        </div>
+                        </a>
                     </div>
                 </div>
 
