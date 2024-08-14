@@ -31,7 +31,7 @@ const ErrorPage = (props) => {
             </div>
             <div className="text-center w-1/2">
                 <p className="text-lg text-white-main text-secondary">
-                    Oops! Looks like this page doesn't exist. Let's get you back on track with your learning.
+                    This page doesn't exist. Let's get you back to the dashboard.
                 </p>
             </div>
             <div className="w-full flex justify-center items-center mt-4 space-x-4">

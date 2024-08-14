@@ -67,6 +67,9 @@ module.exports = {
                     requiredVersion: '^18.0.0',
                 },
             },
+            // remotes: {
+            //     landingPage: "landingPage@http://localhost:3000/_next/static/remoteEntry.js"
+            // },
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({

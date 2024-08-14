@@ -4,7 +4,7 @@ import Navigate from "./Navigate";
 import { BROWSER_STORAGE } from "../../constants";
 
 export const PrivateRoute = ({ children }) => {
-  let hasToken = true //localStorage.getItem(BROWSER_STORAGE.ACCESS_TOKEN);
+  let hasToken = localStorage.getItem(BROWSER_STORAGE.ACCESS_TOKEN);
 
   const location = useLocation();
   return hasToken ? (

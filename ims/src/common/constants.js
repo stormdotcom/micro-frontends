@@ -1,5 +1,5 @@
 export const BROWSER_STORAGE = {
-  ACCESS_TOKEN: "lms_token",
+  ACCESS_TOKEN: "ims_user",
   REFRESH_TOKEN: "refresh_token"
 };
 

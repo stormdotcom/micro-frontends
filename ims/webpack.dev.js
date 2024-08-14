@@ -8,6 +8,9 @@ dotenv.config();
 module.exports = merge(common, {
   mode: "development",
   devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     static: {
       directory: path.resolve(__dirname, 'public'),
     },

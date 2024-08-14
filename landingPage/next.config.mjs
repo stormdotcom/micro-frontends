@@ -10,24 +10,30 @@ const nextConfig = {
     webpack: (config, { isServer }) => {
         if (!isServer) {
             config.plugins.push(
-                // new ModuleFederationPlugin({
-                //     name: 'landing',
-                //     filename: 'static/runtime/remoteEntry.js',
-                //     remotes: {
-                //         mainApp: "mainApp@http://localhost:9000/remoteEntry.js"
-                //     },
+                new ModuleFederationPlugin({
+                    name: 'landingPage',
+                    filename: 'static/runtime/remoteEntry.js',
+                    exposes: {
+                        "./HeaderComponent":
+                            "./src/components/Project/Header.js",
+                        "./Footer":
+                            "./src/components/Project/Footer.js",
+                    },
+                    // remotes: {
+                    //     mainApp: "mainApp@http://localhost:9000/remoteEntry.js"
+                    // },
 
-                //     shared: {
-                //         react: {
-                //             singleton: true,
-                //             requiredVersion: false,
-                //         },
-                //         'react-dom': {
-                //             singleton: true,
-                //             requiredVersion: false,
-                //         },
-                //     },
-                // })
+                    shared: {
+                        react: {
+                            singleton: true,
+                            requiredVersion: false,
+                        },
+                        'react-dom': {
+                            singleton: true,
+                            requiredVersion: false,
+                        },
+                    },
+                })
             );
         }
         return config;

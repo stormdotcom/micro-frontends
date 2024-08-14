@@ -33,7 +33,8 @@ const initialState = {
     courseList: {
         requestInProgress: false,
         data: []
-    }
+    },
+    isMenuOpen: false
 };
 
 
@@ -41,7 +42,10 @@ const slice = createSlice({
     initialState,
     name: STATE_REDUCER_KEY,
     reducers: {
-        clearAll: () => initialState
+        clearAll: () => initialState,
+        setMenuOpen: (state, { payload }) => {
+            state.isMenuOpen = payload;
+        }
     }, extraReducers: (builder) => {
         builder.addCase(ACTION_TYPES.RECENT_ACTIVITIES_REQUEST, (state) => {
             state.recentActivities.requestInProgress = true;

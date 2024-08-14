@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import TermsAndCondition from "../../../modules/common/components/TermsAndConditions";
-import NotificationBanner from "../../../modules/common/components/NotificationBanner"; // Import NotificationBanner
-import PROJECT_PROPS from "../../../../projectconfig";
-
+import logo from "../../../assets/images/hm_logo.png";
 
 const Footer = () => {
-  const [tcOpen, setTC] = useState(null);
-  const handleTermsAndCond = () => setTC(true);
-  const handleCloseTC = () => setTC(null);
   return (
-    <>
-      <div className="bg-secondary flex justify-end w-50 pr-5 py-2 md:pr-20 sm:pr-10 h-8 sticky bottom-0 z-100">
-        <p onClick={handleTermsAndCond} className="pl-2 text-xs cursor-pointer ">
-          Terms and Conditions
-        </p>
-        <p className="pl-2 text-xs ">{PROJECT_PROPS.BRAND} | Copyright</p>
+    <footer className="bg-gray-100 py-2 border-t">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+
+        <div className="text-gray-700 text-sm text-center md:text-left">
+          © Hotspot Mobile – All Rights Reserved.
+        </div>
+
+        <div className="flex justify-center">
+          <img alt="logo" src={logo} width={24} height={24} />
+        </div>
+
+        <div className="text-gray-700 text-sm text-center md:text-right">
+          Developed by{' '}
+          <a href='https://ajmalnasumudeen.in/' target='_blank' className="underline hover:text-secondary">
+            Ajmal Nasumudeen
+          </a>
+        </div>
       </div>
-      <TermsAndCondition handleClose={handleCloseTC} open={tcOpen} />
-      <div className="sm:hidden md:hidden lg:hidden xl:hidden 3xl:hidden 2xl::hidden fixed bottom-7 right-0 mb-4 mr-4 z-50">
-        <NotificationBanner isMobileScreen={true} />
-      </div>
-    </>
+    </footer>
   );
 };
 export default Footer;

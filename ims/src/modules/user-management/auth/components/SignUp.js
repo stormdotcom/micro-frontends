@@ -5,7 +5,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { FormController, Button } from "../../../../common/components";
 
-import LoginWall from "../../../../assets/images/login_wall.webp";
+
+import LoginWall from "../../../../assets/images/hm_logo.png";
 import { SignUpValidation } from "../validate";
 import { useDispatch } from "react-redux";
 import { actions as commonActions } from "../../../common/slice";
@@ -44,18 +45,7 @@ const SignUp = () => {
                     </h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <FormController
-                            controlType="input"
-                            control={control}
-                            name="firstName"
-                            placeholder="First Name"
-                        />
-                        <FormController
-                            controlType="input"
-                            control={control}
-                            name="lastName"
-                            placeholder="Last Name"
-                        />
+
                         <FormController
                             controlType="input"
                             control={control}
@@ -69,13 +59,6 @@ const SignUp = () => {
                             type="password"
                             placeholder="Password"
                         />
-                        <FormController
-                            controlType="input"
-                            control={control}
-                            name="confirmPassword"
-                            type="password"
-                            placeholder="Confirm Password"
-                        />
 
                         <div className="flex justify-end">
                             <Button
@@ -86,19 +69,6 @@ const SignUp = () => {
                             </Button>
                         </div>
                     </form>
-                    <div className="flex justify-center mt-6">
-                        <p className="text-gray-700">Already have an account?</p>
-                        <button
-                            type="button"
-                            className="text-blue-600 hover:underline ml-2"
-                            onClick={() =>
-                                navigate("../login", { state: { from: "register" } })
-                            }
-                        >
-                            Login
-                        </button>
-
-                    </div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions";
 import { STATE_REDUCER_KEY } from "../../constants";
+import { ArrowDownOnSquareIcon } from "@heroicons/react/24/solid";
 
 const accountOptions = [
     { name: "Profile", href: "/home/profile/details", icon: UserIcon },
@@ -17,11 +18,7 @@ export default function AccountMenu() {
     return (
         <Popover className="relative">
             <PopoverButton className="inline-flex items-center gap-x-2 text-sm font-semibold leading-6 text-gray-900">
-                <img
-                    src={userImage ? userImage : "https://via.placeholder.com/40"}
-                    alt="Avatar"
-                    className="w-7 h-7 xs:w-4 xs:w-4 rounded-full border-1 border-secondary"
-                />
+                <ArrowDownOnSquareIcon className="w-7 h-7" />
             </PopoverButton>
 
             <PopoverPanel

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { createHashRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { routes } from "./modules/routes";
 import Loader from "./modules/common/components/Loader";
 
@@ -12,7 +12,7 @@ const ProjectRoutes = () => {
   return (
     <Suspense fallback={<Loader secondaryText={"Downloading assets..."} />}>
       {/* <RouterProvider router={createHashRouter(routePermission(user, routes))} /> */}
-      <RouterProvider router={createHashRouter(routes)} />
+      <RouterProvider router={createBrowserRouter(routes)} />
       <Outlet />
     </Suspense>
   );
