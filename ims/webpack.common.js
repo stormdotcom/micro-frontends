@@ -93,9 +93,21 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            template: "./public/index.html",
+            template: path.resolve(__dirname, "public/index.html"),
             filename: "index.html",
-            title: PROJECT_PROPS.title + " (Dev)"
+            title: PROJECT_PROPS.title,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+            }
         }),
         new ProvidePlugin({
             React: "react"

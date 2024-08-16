@@ -1,9 +1,7 @@
 // webpack.prod.js
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
-const PROJECT_PROPS = require("./projectconfig.js");
 const dotenv = require("dotenv");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 
@@ -17,23 +15,7 @@ module.exports = merge(common, {
         clean: true
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "public/index.html"),
-            filename: "index.html",
-            title: PROJECT_PROPS.title,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true
-            }
-        })
+
 
     ]
 });
