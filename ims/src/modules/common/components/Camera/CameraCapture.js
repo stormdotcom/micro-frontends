@@ -5,6 +5,7 @@ import { Button } from "../../../../common/components";
 import { OPENAI_API_KEY } from "../../../../common/constants";
 import { ChatGPT } from "../../../../common/components/Icons";
 import { CameraIcon } from "@heroicons/react/24/solid";
+import { generateJsonFromText, performOCR } from "../../../../utils/commonUtils";
 
 const CameraCapture = ({ onImageCaptured, handleJson }) => {
     const videoRef = useRef(null);
@@ -45,29 +46,15 @@ const CameraCapture = ({ onImageCaptured, handleJson }) => {
         stopCamera();
     };
 
-    const sendImageToOpenAI = async () => {
+    const processImageAndGenerateJson = async () => {
         try {
-            const response = await axios.post(
-                "https://api.openai.com/v1/images/generations",
-                {
-                    image: capturedImage,
-                    prompt: "Describe this image and provide the name and category as JSON.",
-                    n: 1
-                },
-                {
-                    headers: {
-                        Authorization: `Bearer ${OPENAI_API_KEY}`,
-                        "Content-Type": "application/json"
-                    }
-                }
-            );
-            const { description, name, category } = response.data;
-
-            handleJson({ description, name, category });
-
+            const extractedText = await performOCR(capturedImage);
+            if (extractedText) {
+                const jsonResponse = await generateJsonFromText(extractedText);
+                handleJson(jsonResponse);
+            }
         } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error("Error sending image to OpenAI:", error);
+            console.error("Error processing image and generating JSON:", error);
         }
     };
 
@@ -102,7 +89,7 @@ const CameraCapture = ({ onImageCaptured, handleJson }) => {
                 <div className="mt-4">
                     <img src={capturedImage} alt="Captured" className="w-full h-auto" />
                     <div className="flex justify-center items-center">
-                        <Button onClick={sendImageToOpenAI} variant="contained-primary" extraClass="relative top-[-35px]" >
+                        <Button onClick={processImageAndGenerateJson} variant="contained-primary" extraClass="relative top-[-35px]" >
                             <ChatGPT className="w-4 h-4 mr-2" /> Send to GPT
                         </Button>
                     </div>

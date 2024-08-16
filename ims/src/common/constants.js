@@ -46,3 +46,4 @@ export const UI_SEARCH_LOCATION = [
 
 
 export const OPENAI_API_KEY = "sk-9HRQZCT9VxTaiPJk2suRPspl0HNlR793JeesenFEqwT3BlbkFJuxAPkOOrroPbSQkOguYS8gbl6SmvKYaJk9vTCQ9uIA";
+export const OCR_API = "K87116317588957";

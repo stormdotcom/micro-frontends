@@ -1,5 +1,6 @@
 /* eslint-disable valid-jsdoc */
 
+import { OCR_API, OPENAI_API_KEY } from "../common/constants";
 import { USER_TYPE } from "../modules/user-management/auth/constants";
 import _ from "lodash";
 
@@ -141,4 +142,53 @@ export const removeStringPortion = (str, maxLength = 20) => {
         return str.substr(0, maxLength) + "...";
     }
     return str;
+};
+
+export const generateJsonFromText = async (extractedText) => {
+    try {
+        const response = await axios.post(
+            "https://api.openai.com/v1/completions",
+            {
+                model: "text-davinci-003",
+                prompt: `Extract relevant information and generate a JSON object with fields like "description", "name", and "category" from the following text:\n\n${extractedText}\n\nOutput the result as a JSON object.`,
+                max_tokens: 100,
+                n: 1,
+                stop: null,
+                temperature: 0.7,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${OPENAI_API_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const jsonOutput = response.data.choices[0].text.trim();
+        return JSON.parse(jsonOutput); // Ensure the response is parsed as JSON
+    } catch (error) {
+        console.error("Error generating JSON from text:", error);
+        return {};
+    }
+};
+
+export const performOCR = async (imageData) => {
+    try {
+        const response = await axios.post(
+            OCR_API, // Replace with your OCR API endpoint
+            {
+                image: imageData, // base64 image data
+            },
+            {
+                headers: {
+                    Authorization: `Bearer YOUR_OCR_API_KEY`, // Replace with your OCR API key
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+        return response.data.text; // Assuming the API returns extracted text in 'text'
+    } catch (error) {
+        console.error("Error performing OCR:", error);
+        return "";
+    }
 };
