@@ -5,7 +5,7 @@ const PROJECT_PROPS = require("./projectconfig.js");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+
 
 dotenv.config();
 module.exports = merge(common, {
@@ -33,23 +33,7 @@ module.exports = merge(common, {
                 minifyCSS: true,
                 minifyURLs: true
             }
-        }),
-        new FaviconsWebpackPlugin({
-            logo: path.resolve(__dirname, "./src/assets/favicon.png"),
-            cache: true,
-            inject: true,
-            favicons: {
-                appName: "IMS - Hotspot",
-                appDescription: "Inventory Management System",
-                developerName: "Ajmal Nasumudeen",
-                developerURL: null,
-                background: "#ddd",
-                theme_color: "#F6EB16",
-                icons: {
-                    coast: false,
-                    yandex: false
-                }
-            }
         })
+
     ]
 });

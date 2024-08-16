@@ -7,6 +7,9 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const dotenv = require("dotenv");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const chalk = require("chalk");
+
 // Load environment variables from .env file
 dotenv.config();
 module.exports = {
@@ -44,8 +47,17 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
             },
             {
-                test: /\.(png|jpeg|gif|jpg)$/i,
-                type: "asset/resource"
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            outputPath: "images/",
+                            name: "[name][hash].[ext]"
+                        }
+
+                    }
+                ]
             },
             {
                 test: /\.webp$/i,
@@ -75,6 +87,10 @@ module.exports = {
             //     landingPage: "landingPage@http://localhost:3000/_next/static/remoteEntry.js"
             // },
         }),
+        new ProgressBarPlugin({
+            format: chalk.yellow.bold(":msg") + " [:bar " + chalk.green.bold(":percent") + "] (" + chalk.red.bold(":elapsed") + " seconds)",
+            clear: false
+        }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: "./public/index.html",
@@ -84,7 +100,23 @@ module.exports = {
         new ProvidePlugin({
             React: "react"
         }),
-        new FaviconsWebpackPlugin("./src/assets/favicon.ico")
+        new FaviconsWebpackPlugin({
+            logo: path.resolve(__dirname, "./src/assets/favicon.png"),
+            cache: true,
+            inject: true,
+            favicons: {
+                appName: "IMS - Hotspot",
+                appDescription: "Inventory Management System",
+                developerName: "Ajmal Nasumudeen",
+                developerURL: null,
+                background: "#ddd",
+                theme_color: "#F6EB16",
+                icons: {
+                    coast: false,
+                    yandex: false
+                }
+            }
+        })
     ],
     optimization: {
         splitChunks: {

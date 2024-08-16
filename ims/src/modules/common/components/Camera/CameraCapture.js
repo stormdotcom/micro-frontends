@@ -54,6 +54,7 @@ const CameraCapture = ({ onImageCaptured, handleJson }) => {
                 handleJson(jsonResponse);
             }
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.error("Error processing image and generating JSON:", error);
         }
     };

@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable valid-jsdoc */
 
+import axios from "axios";
 import { OCR_API, OPENAI_API_KEY } from "../common/constants";
 import { USER_TYPE } from "../modules/user-management/auth/constants";
 import _ from "lodash";
@@ -154,7 +156,7 @@ export const generateJsonFromText = async (extractedText) => {
                 max_tokens: 100,
                 n: 1,
                 stop: null,
-                temperature: 0.7,
+                temperature: 0.7
             },
             {
                 headers: {
@@ -174,21 +176,28 @@ export const generateJsonFromText = async (extractedText) => {
 
 export const performOCR = async (imageData) => {
     try {
-        const response = await axios.post(
-            OCR_API, // Replace with your OCR API endpoint
-            {
-                image: imageData, // base64 image data
-            },
-            {
-                headers: {
-                    Authorization: `Bearer YOUR_OCR_API_KEY`, // Replace with your OCR API key
-                    "Content-Type": "application/json"
-                }
+        const formData = new FormData();
+        formData.append("apikey", OCR_API);
+        formData.append("base64Image", imageData);
+        formData.append("language", "eng");
+        formData.append("isOverlayRequired", "false");
+
+        const response = await axios.post("https://api.ocr.space/parse/image", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
             }
-        );
-        return response.data.text; // Assuming the API returns extracted text in 'text'
+        });
+
+        if (response.data && response.data.ParsedResults) {
+            return response.data.ParsedResults[0].ParsedText;
+        } else {
+            console.error("Error in OCR response:", response.data);
+            return null;
+        }
     } catch (error) {
         console.error("Error performing OCR:", error);
-        return "";
+        return null;
     }
 };
+
+export default performOCR;
