@@ -8,13 +8,13 @@ const Loader = (props) => {
   return (
     <div className="flex items-center flex-col justify-center h-full" style={{ height: "90vh" }}>
       <div className="text-center flex items-center gap-2 flex-col">
-        <CustomLoader {...loaderProps} color={"#4a4a4a"} />
         <img src={logo} alt="logo" height={30} width={30} />
-        <p className="text-black text-3xl font-extrabold relative top-[-25px] z-10 text">{PROJECT_PROPS.BRAND}</p>
+        <CustomLoader {...loaderProps} color={"#F6EB16"} />
+        <p className="text-black text-3xl font-extrabold relative top-[-28px] z-10 tracking-wide">{PROJECT_PROPS.BRAND}</p>
+        <p className="text-black text-sm"> {secondaryText} </p>
         <div>
         </div>
       </div>
-      <p className="text-black text-sm mt-2"> {secondaryText} </p>
     </div>
   );
 };
