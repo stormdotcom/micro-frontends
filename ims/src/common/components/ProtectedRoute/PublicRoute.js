@@ -7,7 +7,7 @@ import { STATE_REDUCER_KEY } from "../../../modules/common/constants";
 export const PublicRoute = ({ children }) => {
     let hasToken = localStorage.getItem(BROWSER_STORAGE.ACCESS_TOKEN);
     const location = useLocation();
-    const safePath = useSelector(state => state[STATE_REDUCER_KEY].safePath) || "/login";
+    const safePath = useSelector(state => state[STATE_REDUCER_KEY].safePath);
     return hasToken ? (
         <Navigate
             replace={true}
