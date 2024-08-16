@@ -9,5 +9,5 @@ export const loginValidation = yup.object().shape({
 
 export const SignUpValidation = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email is required"),
-    password: yup.string().required("Password is required").min(3, "Password must be at least 3 characters"),
+    password: yup.string().required("Password is required").min(3, "Password must be at least 3 characters")
 });

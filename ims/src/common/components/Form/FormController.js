@@ -1,4 +1,4 @@
-import { CustomInput, CustomSelect, RadioButtons, Textarea, DatePicker, CheckboxGroup, Files, DropDown } from "./components";
+import { CustomInput, CustomSelect, RadioButtons, Textarea, DatePicker, CheckboxGroup, DropDown } from "./components";
 
 
 const FormController = ({ controlType, ...rest }) => {
@@ -17,8 +17,6 @@ const FormController = ({ controlType, ...rest }) => {
             return <CheckboxGroup {...rest} />;
         case "date":
             return <DatePicker {...rest} />;
-        case "file":
-            return <Files {...rest} />;
         default:
             return null;
     }

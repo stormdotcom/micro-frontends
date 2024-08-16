@@ -2,7 +2,9 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const PROJECT_PROPS = require("./projectconfig.js");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 dotenv.config();
 module.exports = merge(common, {
@@ -11,7 +13,7 @@ module.exports = merge(common, {
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "dist"),
-        clean: true,
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -28,8 +30,8 @@ module.exports = merge(common, {
                 keepClosingSlash: true,
                 minifyJS: true,
                 minifyCSS: true,
-                minifyURLs: true,
-            },
-        }),
-    ],
+                minifyURLs: true
+            }
+        })
+    ]
 });

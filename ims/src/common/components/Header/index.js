@@ -1,17 +1,16 @@
 import React from "react";
-import NotificationBanner from "../../../modules/common/components/NotificationBanner";
 import AccountMenu from "../../../modules/common/components/AvatarMenu/AccountMenu";
 import { useNavigate } from "react-router-dom";
 import PROJECT_PROPS from "../../../../projectconfig";
 
-import { Squares2X2Icon } from '@heroicons/react/24/solid';
-import { useDispatch, useSelector } from "react-redux";
-import { STATE_REDUCER_KEY } from "../../../modules/user/home/constants";
+import { Squares2X2Icon } from "@heroicons/react/24/solid";
+import { useDispatch } from "react-redux";
+
 import { actions } from "../../../modules/user/home/slice";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleOpen = () => dispatch(actions.setMenuOpen(true))
+  const handleOpen = () => dispatch(actions.setMenuOpen(true));
   return (
     <header className="z-10 w-full h-18 sticky top-0 bg-primary border-b border-gray-300 shadow-b-md flex items-center px-4">
       <div className="mx-1 flex cursor-pointer" onClick={handleOpen}>

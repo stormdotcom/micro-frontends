@@ -43,3 +43,6 @@ export const UI_SEARCH_LOCATION = [
   { title: "Settings", subTitle: "view settings", slug: "./home/profile/settings", type: "page" },
   { title: "Privacy and Policy", subTitle: "read our privacy and policy ", slug: "./home/profile/privacy", type: "page" }
 ];
+
+
+export const OPENAI_API_KEY = "sk-9HRQZCT9VxTaiPJk2suRPspl0HNlR793JeesenFEqwT3BlbkFJuxAPkOOrroPbSQkOguYS8gbl6SmvKYaJk9vTCQ9uIA";

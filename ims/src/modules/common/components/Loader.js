@@ -1,7 +1,7 @@
 import React from "react";
 import { GridLoader as CustomLoader } from "react-spinners";
 import PROJECT_PROPS from "../../../../projectconfig";
-import logo from "../../../assets/images/hm_logo.png"
+import logo from "../../../assets/images/hm_logo.png";
 
 const Loader = (props) => {
   const { loaderProps, secondaryText = "Please wait..." } = props;

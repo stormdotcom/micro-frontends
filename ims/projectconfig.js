@@ -1,8 +1,9 @@
 
 const PROJECT_PROPS = {
     title: "Inventory Management System",
-    BRAND: "Hotspot Mobiles",
+    BRAND: "Hotspot Mobiles"
 
-}
 
-module.exports = PROJECT_PROPS
+};
+
+module.exports = PROJECT_PROPS;

@@ -10,6 +10,7 @@ import { SocketProvider } from "./@app/SocketProvider";
 import { BROWSER_STORAGE } from "./common/constants";
 import "./styles/tailwind.css";
 
+
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,11 +25,9 @@ function App() {
   }, []);
   return (
     <SocketProvider jwtToken={jwtToken}>
-      <div className="app">
-        <ProjectLayouts>
-          <Outlet />
-        </ProjectLayouts>
-      </div>
+      <ProjectLayouts>
+        <Outlet />
+      </ProjectLayouts>
     </SocketProvider>
   );
 }

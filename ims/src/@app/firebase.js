@@ -1,8 +1,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyAGmIhjqdnDpIx4g-Yn5fxU3mp99ZNFU4Y",
     authDomain: "hostspot-mobile-ims.firebaseapp.com",
@@ -19,4 +19,4 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-export { app, analytics, db, auth }
+export { app, analytics, db, auth };

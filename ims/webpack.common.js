@@ -4,9 +4,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PROJECT_PROPS = require("./projectconfig");
 const { ProvidePlugin } = require("webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const dotenv = require('dotenv');
-
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const dotenv = require("dotenv");
+const ESLintPlugin = require("eslint-webpack-plugin");
 // Load environment variables from .env file
 dotenv.config();
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].bundle.js",
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -29,44 +30,47 @@ module.exports = {
                                 [
                                     "@babel/preset-env",
                                     {
-                                        targets: "defaults",
-                                    },
+                                        targets: "defaults"
+                                    }
                                 ],
-                                "@babel/preset-react",
-                            ],
-                        },
-                    },
-                ],
+                                "@babel/preset-react"
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
             },
             {
                 test: /\.(png|jpeg|gif|jpg)$/i,
-                type: "asset/resource",
+                type: "asset/resource"
             },
             {
                 test: /\.webp$/i,
-                use: ["file-loader", "webp-loader"],
-            },
-        ],
+                use: ["file-loader", "webp-loader"]
+            }
+        ]
     },
     plugins: [
-
+        new ESLintPlugin({
+            extensions: ["js", "jsx"],
+            exclude: "node_modules"
+        }),
         new ModuleFederationPlugin({
             name: "mainApp",
             filename: "remoteEntry.js",
             shared: {
                 react: {
                     singleton: true,
-                    requiredVersion: '^18.0.0',
+                    requiredVersion: "^18.0.0"
                 },
                 "react-dom": {
                     singleton: true,
-                    requiredVersion: '^18.0.0',
-                },
-            },
+                    requiredVersion: "^18.0.0"
+                }
+            }
             // remotes: {
             //     landingPage: "landingPage@http://localhost:3000/_next/static/remoteEntry.js"
             // },
@@ -75,16 +79,16 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html",
             filename: "index.html",
-            title: PROJECT_PROPS.title + " (Dev)",
+            title: PROJECT_PROPS.title + " (Dev)"
         }),
         new ProvidePlugin({
-            React: 'react',
+            React: "react"
         }),
-        new FaviconsWebpackPlugin('./src/assets/favicon.ico')
+        new FaviconsWebpackPlugin("./src/assets/favicon.ico")
     ],
     optimization: {
         splitChunks: {
-            chunks: "all",
-        },
-    },
+            chunks: "all"
+        }
+    }
 };

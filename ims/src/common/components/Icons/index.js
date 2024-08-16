@@ -5,5 +5,7 @@ import {
   UserCircleIcon as UserCircle,
   BellAlertIcon as BellAlert, ArrowPathIcon as Refresh, HomeIcon
 } from "@heroicons/react/24/solid";
+import ChatGPT from "./ChatGPT";
 
-export { SearchIcon, Menu, Close, UserCircle, BellAlert, Refresh, HomeIcon };
+
+export { SearchIcon, Menu, Close, UserCircle, BellAlert, Refresh, HomeIcon, ChatGPT };

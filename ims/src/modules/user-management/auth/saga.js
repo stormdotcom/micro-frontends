@@ -1,19 +1,11 @@
 /* eslint-disable camelcase */
-import { all, call, delay, fork, put, take, takeLatest } from "redux-saga/effects";
+import { all, call, delay, put, takeLatest } from "redux-saga/effects";
 import { ACTION_TYPES } from "./actions";
-import { signInApi, signUpApi } from "./api";
-import { handleAPIRequest } from "../../../utils/http";
 
-import { logout, navigateTo, sentEvent } from "../../common/actions";
-import { USER_TYPE } from "./constants";
-import { actions as commonActions } from "../../common/slice";
 
-import _ from "lodash";
-import { errorNotify, loaderNotify, successNotify } from "../../../utils/notificationUtils";
-import { dismissNotification } from "reapop";
-import { BROWSER_STORAGE, EVENT_TYPES, HTTP } from "../../../common/constants";
-import API_URL from "./apiUrls";
-import { getRequest } from "../../../@app/axios";
+import { navigateTo } from "../../common/actions";
+import { errorNotify, successNotify } from "../../../utils/notificationUtils";
+import { BROWSER_STORAGE } from "../../../common/constants";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../@app/firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -24,7 +16,7 @@ export function* login({ payload }) {
     const userCredential = yield call(signInWithEmailAndPassword, auth, email, password);
     yield put({ type: ACTION_TYPES.LOGIN_SUCCESS, payload: userCredential.user });
     yield put(successNotify({ title: "Success", message: "Logged in Successfully" }));
-    localStorage.setItem(BROWSER_STORAGE.ACCESS_TOKEN, userCredential.user)
+    localStorage.setItem(BROWSER_STORAGE.ACCESS_TOKEN, userCredential.user);
     yield delay(500);
     yield put(navigateTo("../home/dashboard"));
   } catch (error) {
@@ -43,14 +35,14 @@ export function* register({ payload }) {
       emailVerified: user.emailVerified,
       createdAt: user.metadata.creationTime,
       lastLoginAt: user.metadata.lastSignInTime,
-      providerData: user.providerData,
+      providerData: user.providerData
     };
 
     // Create a document in the 'users' collection with the user's UID
-    yield setDoc(doc(db, 'users', user.uid), userData);
+    yield setDoc(doc(db, "users", user.uid), userData);
     yield put({ type: ACTION_TYPES.REGISTER_SUCCESS, payload: user });
     yield put(successNotify({ title: "Success", message: "Registered Successfully" }));
-    yield delay(500)
+    yield delay(500);
     yield put(navigateTo("../login"));
   } catch (error) {
     const message = error.message;

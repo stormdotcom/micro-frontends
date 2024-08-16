@@ -6,7 +6,6 @@ import { RootBoundary } from "../common/components";
 
 import { routes as userRoutes } from "./user/routes";
 import { routes as userManagement } from "./user-management/routes";
-import { routes as adminRoute } from "./admin/routes";
 
 import UserHome from "./user/UserHome";
 import { PublicRoute } from "../common/components/ProtectedRoute/PublicRoute";
@@ -26,7 +25,7 @@ const routes = [
         children: userRoutes || [],
         errorElement: <RootBoundary />
 
-      },
+      }
       // {
       //   path: "admin",
       //   element: <PrivateRoute>  <InstructorHome /> </PrivateRoute>,

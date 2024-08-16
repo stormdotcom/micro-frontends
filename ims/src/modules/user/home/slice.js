@@ -43,8 +43,8 @@ const slice = createSlice({
     name: STATE_REDUCER_KEY,
     reducers: {
         clearAll: () => initialState,
-        setMenuOpen: (state, { payload }) => {
-            state.isMenuOpen = payload;
+        setMenuOpen: (state) => {
+            state.isMenuOpen = !state.isMenuOpen;
         }
     }, extraReducers: (builder) => {
         builder.addCase(ACTION_TYPES.RECENT_ACTIVITIES_REQUEST, (state) => {

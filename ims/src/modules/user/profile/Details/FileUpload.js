@@ -2,9 +2,10 @@ import React from "react";
 import { PaperClipIcon, ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 import { removeStringPortion } from "../../../../utils/commonUtils";
 
-const FileUpload = ({ handleImage, fileError = "", handleUpload, isFileExists = false, fileName = "" }) => {
+const FileUpload = ({ handleImage, fileError = "", handleUpload, isFileExists = false, fileName = "", label = "" }) => {
     return (
         <div className="flex flex-col items-center">
+            <p className="block text-sm font-medium text-secondary mb-1">{label}</p>
             <div className="w-28 rounded border border-dotted border-gray-400 p-1">
                 <label htmlFor="file-upload" className="cursor-pointer flex items-center">
                     <PaperClipIcon className="h-5 w-5" />

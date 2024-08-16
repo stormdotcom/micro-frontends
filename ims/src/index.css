@@ -7,10 +7,26 @@
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+  height: 100vh; /* Make sure the app takes the full height of the viewport */
 }
+
+.main-container {
+  display: flex;
+  flex-grow: 1; /* Ensure this section takes all the remaining space after the header */
+}
+
+.sidebar {
+  width: 250px; /* Set a fixed width for the sidebar */
+  flex-shrink: 0; /* Prevent the sidebar from shrinking */
+}
+
+.content {
+  flex-grow: 1; /* Ensure content takes up the remaining space */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  background-color: #1f2937; /* Example background color for content area */
+  padding: 20px; /* Add padding to the content area */
+}
+
 
 ::-webkit-scrollbar {
   height: 8px;

@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
 const InvoiceGenerator = ({ invoiceData }) => {
     const generateInvoice = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/invoices/generate-pdf', {
-                method: 'POST',
+            const response = await fetch("http://localhost:3000/api/invoices/generate-pdf", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json"
                 },
-                body: JSON.stringify(invoiceData),
+                body: JSON.stringify(invoiceData)
             });
 
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
+            const a = document.createElement("a");
             a.href = url;
             a.download = `${invoiceData.invoiceTo}_invoice.pdf`;
             document.body.appendChild(a);
             a.click();
             a.remove();
         } catch (error) {
-            console.error('Error generating invoice:', error);
+            // eslint-disable-next-line no-console
+            console.error("Error generating invoice:", error);
         }
     };
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { UserIcon, CogIcon, ArrowLeftIcon as LogoutIcon } from "@heroicons/react/20/solid";
 import { useDispatch, useSelector } from "react-redux";

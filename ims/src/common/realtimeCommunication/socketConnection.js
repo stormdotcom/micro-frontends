@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 
 
 export const connectWithSocketServer = (jwtToken) => {
   const socketURL = process.env.REACT_APP_SOCKET;
-  const socket = {}
+  const socket = {};
   //  io(socketURL, {
   //   transports: ["websocket"],
   //   secure: socketURL.startsWith("https"),

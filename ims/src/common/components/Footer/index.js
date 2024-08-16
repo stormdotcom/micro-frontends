@@ -14,8 +14,8 @@ const Footer = () => {
         </div>
 
         <div className="text-gray-700 text-sm text-center md:text-right">
-          Developed by{' '}
-          <a href='https://ajmalnasumudeen.in/' target='_blank' className="underline hover:text-secondary">
+          Developed by{" "}
+          <a href='https://ajmalnasumudeen.in/' target='_blank' className="underline hover:text-secondary" rel="noreferrer">
             Ajmal Nasumudeen
           </a>
         </div>

@@ -15,7 +15,7 @@ module.exports = {
         text: "#5c3d00",
         border: "#f0e68c",
         gridBorder: "#e0d896",
-        menu: "#89CFF0",
+        menu: "#89CFF0"
       }
     }
   },
