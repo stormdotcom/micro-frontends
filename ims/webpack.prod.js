@@ -18,7 +18,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: path.resolve(__dirname, "public/index.html"),
             filename: "index.html",
             title: PROJECT_PROPS.title,
             minify: {
