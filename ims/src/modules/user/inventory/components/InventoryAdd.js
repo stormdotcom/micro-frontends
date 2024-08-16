@@ -164,7 +164,7 @@ const InventoryAdd = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-end mt-6">
+                <div className="flex justify-end mt-6 xs:justify-center">
                     <Button
                         variant="contained-primary"
                         type="submit"
@@ -173,7 +173,7 @@ const InventoryAdd = () => {
                     </Button>
                 </div>
             </form>
-            <div className="col-span-1 md:col-span-2 flex justify-center">
+            <div className="col-span-1 md:col-span-2 flex justify-center mt-3">
                 <CameraCapture handleJson={handleJson} />
             </div>
         </div>

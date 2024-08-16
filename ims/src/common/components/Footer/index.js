@@ -13,7 +13,7 @@ const Footer = () => {
           <img alt="logo" src={logo} width={24} height={24} />
         </div>
 
-        <div className="text-gray-700 text-sm text-center md:text-right">
+        <div className="text-gray-700 text-sm text-center md:text-right xs:hidden hidden sm:block">
           Developed by{" "}
           <a href='https://ajmalnasumudeen.in/' target='_blank' className="underline hover:text-secondary" rel="noreferrer">
             Ajmal Nasumudeen

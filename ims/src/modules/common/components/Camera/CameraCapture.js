@@ -17,7 +17,11 @@ const CameraCapture = ({ onImageCaptured, handleJson }) => {
     const startCamera = () => {
         setIsCameraOpen(true);
         navigator.mediaDevices
-            .getUserMedia({ video: true })
+            .getUserMedia({
+                video: {
+                    facingMode: { ideal: "environment" }
+                }
+            })
             .then(stream => {
                 streamRef.current = stream;
                 videoRef.current.srcObject = stream;

@@ -14,9 +14,9 @@ export function* login({ payload }) {
   const { email, password } = payload;
   try {
     const userCredential = yield call(signInWithEmailAndPassword, auth, email, password);
-    yield put({ type: ACTION_TYPES.LOGIN_SUCCESS, payload: userCredential.user });
+    yield put({ type: ACTION_TYPES.LOGIN_SUCCESS, payload: userCredential.user[0] });
     yield put(successNotify({ title: "Success", message: "Logged in Successfully" }));
-    localStorage.setItem(BROWSER_STORAGE.ACCESS_TOKEN, { ...userCredential.user });
+    localStorage.setItem(BROWSER_STORAGE.ACCESS_TOKEN, userCredential.user[0]);
     yield delay(500);
     yield put(navigateTo("../home/dashboard"));
   } catch (error) {
