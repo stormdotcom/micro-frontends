@@ -149,10 +149,19 @@ export const removeStringPortion = (str, maxLength = 20) => {
 export const generateJsonFromText = async (extractedText) => {
     try {
         const response = await axios.post(
-            "https://api.openai.com/v1/completions",
+            "https://api.openai.com/v1/chat/completions",
             {
-                model: "text-davinci-003",
-                prompt: `Extract relevant information and generate a JSON object with fields like "description", "name", and "category" from the following text:\n\n${extractedText}\n\nOutput the result as a JSON object.`,
+                model: "gpt-3.5-turbo",
+                messages: [
+                    {
+                        role: "system",
+                        content: "You are an assistant that extracts structured information from text."
+                    },
+                    {
+                        role: "user",
+                        content: `Extract relevant information and generate a JSON object with fields like "description", "name", and "category" from the following text:\n\n${extractedText}\n\nOutput the result as a JSON object.`
+                    }
+                ],
                 max_tokens: 100,
                 n: 1,
                 stop: null,
@@ -166,7 +175,7 @@ export const generateJsonFromText = async (extractedText) => {
             }
         );
 
-        const jsonOutput = response.data.choices[0].text.trim();
+        const jsonOutput = response.data.choices[0].message.content.trim();
         return JSON.parse(jsonOutput); // Ensure the response is parsed as JSON
     } catch (error) {
         console.error("Error generating JSON from text:", error);
@@ -200,4 +209,3 @@ export const performOCR = async (imageData) => {
     }
 };
 
-export default performOCR;
