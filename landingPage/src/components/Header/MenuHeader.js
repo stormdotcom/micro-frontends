@@ -39,7 +39,7 @@ const MenuHeader = () => {
     // 2) useEffect that triggers the banner after 1 second
     useEffect(() => {
         const timer = setTimeout(() => {
-            setShowMaintenanceBanner(false);
+            setShowMaintenanceBanner(true);
         }, 1000);
 
         return () => clearTimeout(timer);
