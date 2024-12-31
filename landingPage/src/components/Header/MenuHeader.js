@@ -34,7 +34,7 @@ const categories = [
 
 const MenuHeader = () => {
     // 1) State to control whether the maintenance banner is shown
-    const [showMaintenanceBanner, setShowMaintenanceBanner] = useState(false);
+    const [showMaintenanceBanner, setShowMaintenanceBanner] = useState(true);
 
     // 2) useEffect that triggers the banner after 1 second
     useEffect(() => {
