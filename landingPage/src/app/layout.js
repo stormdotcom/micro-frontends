@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   const LoginComponent = () => <Login />
   const MiddleFooterComponent = () => <MiddleFooter />
   return (
-    <html lang="en">
+    <html suppressHydrationWarning={true} lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body>
         <Header NavigationComponent={NavigationComponent} SearchBarComponent={SearchBarComponent} LoginComponent={LoginComponent} />
