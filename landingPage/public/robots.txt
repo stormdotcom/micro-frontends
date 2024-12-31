@@ -7,6 +7,6 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ajmalnasumudeen.in
+Host: https://hotspotmobile.vercel.app
 
-Sitemap: https://ajmalnasumudeen.in/sitemap.xml
+Sitemap: https://hotspotmobile.vercel.app/sitemap.xml
