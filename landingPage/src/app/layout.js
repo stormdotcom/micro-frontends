@@ -15,7 +15,7 @@ export const metadata = {
     default: "Hotspot Mobiles | Mobile Service & Sales Karyavattom",
     template: "%s | Hotspot Mobiles"
   },
-  description: "Hotspot Mobiles offers the best mobile sales, service, and software solutions in Kazhakuttom and Karyavattom. We provide top-quality mobile repairs, accessories, and the latest smartphones at competitive prices. Visit us for expert mobile service, fast repairs, and a wide range of mobile products.",
+  description: "Best Mobiles shop in kazhakuttom, Hotspot Mobiles offers the best mobile sales, service, and software solutions in Kazhakuttom and Karyavattom. We provide top-quality mobile repairs, accessories, and the latest smartphones at competitive prices. Visit us for expert mobile service, fast repairs, and a wide range of mobile products.",
   keywords: "best mobile shop Kazhakuttom, best mobile shop Karyavattom, mobile repair Kazhakuttom, mobile accessories Kazhakuttom, mobile sales Karyavattom, smartphone shop Kazhakuttom, mobile service center Kazhakuttom, mobile repairs Karyavattom",
 };
 
