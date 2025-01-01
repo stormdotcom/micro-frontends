@@ -53,5 +53,5 @@ coverage/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env.dev
 .env.test
