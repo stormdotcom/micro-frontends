@@ -8,27 +8,43 @@ import Login from "@/components/Header/Login";
 import MiddleFooter from "@/components/Footer/MiddleFooter";
 import MenuHeader from "@/components/Header/MenuHeader";
 
-
-
 export const metadata = {
   title: {
-    default: "Hotspot Mobiles | Mobile Service & Sales Karyavattom",
-    template: "%s | Hotspot Mobiles"
+    default: "Hotspot Mobiles | Best Mobile Sales & Service in Karyavattom",
+    template: "%s | Hotspot Mobiles - Karyavattom",
   },
-  description: "Best Mobiles shop in kazhakuttom, Hotspot Mobiles offers the best mobile sales, service, and software solutions in Kazhakuttom and Karyavattom. We provide top-quality mobile repairs, accessories, and the latest smartphones at competitive prices. Visit us for expert mobile service, fast repairs, and a wide range of mobile products.",
-  keywords: "best mobile shop Kazhakuttom, best mobile shop Karyavattom, mobile repair Kazhakuttom, mobile accessories Kazhakuttom, mobile sales Karyavattom, smartphone shop Kazhakuttom, mobile service center Kazhakuttom, mobile repairs Karyavattom",
+  description:
+    "Hotspot Mobiles in Kazhakuttom offers expert mobile sales, repairs, and accessories. Visit us for the latest smartphones and fast, reliable service in Karyavattom.",
+  openGraph: {
+    images: [
+      {
+        url: "https://hotspotmobiles.com/assets/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hotspot Mobiles | Mobile Service & Sales Karyavattom",
+      },
+    ],
+  },
+  keywords:
+    "mobile shop Kazhakuttom, mobile service Karyavattom, smartphone sales, mobile repair center, mobile accessories store, phone repairs Kazhakuttom",
 };
 
 export default function RootLayout({ children }) {
   const NavigationComponent = () => <Navigation />;
-  const SearchBarComponent = () => <SearchBar placeholder="Search products..." />;
-  const LoginComponent = () => <Login />
-  const MiddleFooterComponent = () => <MiddleFooter />
+  const SearchBarComponent = () => (
+    <SearchBar placeholder="Search products..." />
+  );
+  const LoginComponent = () => <Login />;
+  const MiddleFooterComponent = () => <MiddleFooter />;
   return (
     <html suppressHydrationWarning={true} lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body>
-        <Header NavigationComponent={NavigationComponent} SearchBarComponent={SearchBarComponent} LoginComponent={LoginComponent} />
+        <Header
+          NavigationComponent={NavigationComponent}
+          SearchBarComponent={SearchBarComponent}
+          LoginComponent={LoginComponent}
+        />
         <MenuHeader />
         {children}
         <Footer MiddleFooterComponent={MiddleFooterComponent} />
