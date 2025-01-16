@@ -10,7 +10,7 @@ import MenuHeader from "@/components/Header/MenuHeader";
 
 export const metadata = {
   title: {
-    default: "Hotspot Mobiles | Best Mobile Sales & Service in Karyavattom",
+    default: "Hotspot Mobiles | Expert Mobile Repairs & Sales in Karyavattom",
     template: "%s | Hotspot Mobiles - Karyavattom",
   },
   description:
